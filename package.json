@@ -1,0 +1,50 @@
+{
+  "name": "@mtbjorn/hypotenuse",
+  "version": "0.0.1",
+  "description": "A suite of tools to manage component rendering & data storage",
+  "main": "dist/mtbjorn-hypotenuse.js",
+  "entry": "src/index.js",
+  "scripts": {
+    "build:prod": "webpack --config=webpack.config.prod.js",
+    "build:dev": "webpack --config=webpack.config.dev.js",
+    "build": "npm run build:dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf dist",
+    "prepublish": "npm run clean && npm run build:prod"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "render",
+    "state",
+    "utility",
+    "utilities"
+  ],
+  "files": [
+    "/dist"
+  ],
+  "homepage": "https://github.com/CAndRyan/MTBjorn.Hypotenuse",
+  "bugs": {
+    "url": "https://github.com/CAndRyan/MTBjorn.Hypotenuse/issues",
+    "email": "mtbjorn41@outlook.com"
+  },
+  "author": "@CAndRyan",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CAndRyan/MTBjorn.Hypotenuse.git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.16.12",
+    "@babel/plugin-transform-runtime": "^7.16.10",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.3",
+    "source-map-loader": "^3.0.1",
+    "webpack": "^5.67.0",
+    "webpack-cli": "^4.9.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.16.7",
+    "uuid": "^8.3.2"
+  }
+}
