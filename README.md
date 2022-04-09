@@ -14,7 +14,7 @@ Data rendering uses an element's ID, or an auto-generated ID if not specified, t
 * Render an element by appending to an existing element
 
     ````javascript
-    import { renderElementAsAppend } from '@mtbjorn.hypotenuse/dist/ui';
+    import { renderElementAsAppend } from '@mtbjorn.hypotenuse/ui';
     const element = document.createElement('div');
     const domReference = await renderElementAsAppend(element, 'parent-element-id');
     ````
@@ -22,7 +22,7 @@ Data rendering uses an element's ID, or an auto-generated ID if not specified, t
 * Render an element by specifying exactly how
 
     ````javascript
-    import { renderElement } from '@mtbjorn.hypotenuse/dist/ui';
+    import { renderElement } from '@mtbjorn.hypotenuse/ui';
     import { SomeComponent } from 'component-library';
     const addElementLikeSo = (element) => {
         document.getElementById('some-parent').prepend(element);
@@ -33,7 +33,7 @@ Data rendering uses an element's ID, or an auto-generated ID if not specified, t
 * Render an element as a replacement for an existing element
 
     ````javascript
-    import { replaceElement } from '@mtbjorn.hypotenuse/dist/ui';
+    import { replaceElement } from '@mtbjorn.hypotenuse/ui';
     import { SomeComponent } from 'component-library';
     const existingElement = await renderElementAsAppend(document.createElement('div'), 'parent-id');
     const getComponentAsync = async () => {
@@ -50,7 +50,7 @@ The data store is just a global object partitioned into two segments, one for ru
 1. Initialize the data store before using within an application. Initial state can be provided as either runtime-only, via the first parameter, or persistant (to local storage) via the second parameter
 
     ````javascript
-    import { initializeDataStore } from '@mtbjorn.hypotenuse/dist/data';
+    import { initializeDataStore } from '@mtbjorn.hypotenuse/data';
     initializeDataStore();
     ````
 
@@ -58,7 +58,7 @@ The data store is just a global object partitioned into two segments, one for ru
 1. Set & retrieve state
 
     ````javascript
-    import { setState, getState } from '@mtbjorn.hypotenuse/dist/data';
+    import { setState, getState } from '@mtbjorn.hypotenuse/data';
     // globalState == { local: {} }
     setState('app.options', { enabled: true });
     const globalState = getState(); // { local: {}, { app: { options: { enabled: true } } } }
@@ -68,7 +68,7 @@ The data store is just a global object partitioned into two segments, one for ru
 1. Add state listener for if a node in the global state, or one of it's parents, is updated
 
     ````javascript
-    import { addStateListener } from '@mtbjorn.hypotenuse/dist/data';
+    import { addStateListener } from '@mtbjorn.hypotenuse/data';
     const onStateChange = () => {
         console.log('triggered');
     };
@@ -80,7 +80,7 @@ The data store is just a global object partitioned into two segments, one for ru
 1. Add state listener for if a node in the global state, one of it's parents, or one of it's children, is updated
 
     ````javascript
-    import { addStateListener } from '@mtbjorn.hypotenuse/dist/data';
+    import { addStateListener } from '@mtbjorn.hypotenuse/data';
     const onStateChange = () => {
         console.log('triggered');
     };
@@ -95,7 +95,7 @@ The data store is just a global object partitioned into two segments, one for ru
 * Resize an image file (down) to a desired file size, within a specified tolerance
 
      ````javascript
-    import { resizeImage } from '@mtbjorn.hypotenuse/dist/utility';
+    import { resizeImage } from '@mtbjorn.hypotenuse/utility';
     const targetFileSizeKb = 1000;
     const maxDeviationKb = 50;
     const handleFileListUpload = async ({ target }) => {
