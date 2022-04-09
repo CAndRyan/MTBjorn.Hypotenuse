@@ -7,20 +7,20 @@ const localStorageRootKey = 'mtbjorn-hypotenuse';
 // NOTE: any data within the 'local' segment will persist to local storage
 export const localDataStateKey = 'local';
 
-const getInitialState = (initialState, initialPersistantState) => {
+const getInitialState = (initialRuntimeState, initialPersistentState) => {
 	const localDataJson = localStorage.getItem(localStorageRootKey);
 	const localDataFromStorage = localDataJson ? JSON.parse(localDataJson) : {};
-    const localData = { ...localDataFromStorage, ...initialPersistantState };;
+    const localData = { ...localDataFromStorage, ...initialPersistentState };;
 	const initialState = {
-		...initialState,
+		...initialRuntimeState,
 		[localDataStateKey]: localData
 	};
 
 	return initialState;
 };
 
-export const initializeDataStore = (initialState = {}, initialPersistantState = {}) => {
-    globalState = getInitialState(initialState, initialPersistantState);
+export const initializeDataStore = (initialRuntimeState = {}, initialPersistentState = {}) => {
+    globalState = getInitialState(initialRuntimeState, initialPersistentState);
 
     // TODO: something?
 };

@@ -9,8 +9,7 @@
     "build:dev": "webpack --config=webpack.config.dev.js",
     "build": "npm run build:dev",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "rimraf dist",
-    "prepublish": "npm run clean && npm run build:prod"
+    "prepublish": "npm run build:prod"
   },
   "keywords": [
     "react",
@@ -41,6 +40,7 @@
     "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.2.3",
     "babel-plugin-jsx-pragmatic": "^1.0.2",
+    "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.5.1",
     "sass": "^1.49.0",
     "sass-loader": "^12.4.0",
