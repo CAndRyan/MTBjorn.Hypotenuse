@@ -2,16 +2,20 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.js',
+    entry: {
+        main: './src/index.js',
+        ui: './src/ui.js',
+        data: './src/data.js',
+        utility: './src/utility.js'
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'mtbjorn-hypotenuse.js',
+        filename: '[name].js',
         library: 'hypotenuse',
         libraryTarget: 'umd',
-        umdNamedDefine: true
-      },
+    },
     resolve: {
-        extensions: ['', '.js', '.mjs'],
+        extensions: ['', '.js', '.jsx', '.mjs'],
     },
     module: {
         rules: [
