@@ -2,7 +2,7 @@
   "name": "@mtbjorn/hypotenuse",
   "version": "0.0.1",
   "description": "A suite of tools to manage component rendering, data storage, & various utility functions",
-  "main": "dist/mtbjorn-hypotenuse.js",
+  "main": "dist/main.js",
   "entry": "src/index.js",
   "scripts": {
     "build:prod": "webpack --config=webpack.config.prod.js",
@@ -20,8 +20,17 @@
     "utilities"
   ],
   "files": [
-    "/dist"
+    "/dist",
+    "./src/ui.js",
+    "./src/data.js",
+    "./src/utility.js"
   ],
+  "exports": {
+    ".": "./dist/main.js",
+    "./ui": "./src/ui.js",
+    "./data": "./src/data.js",
+    "./utility": "./src/utility.js"
+  },
   "homepage": "https://github.com/CAndRyan/MTBjorn.Hypotenuse",
   "bugs": {
     "url": "https://github.com/CAndRyan/MTBjorn.Hypotenuse/issues",
