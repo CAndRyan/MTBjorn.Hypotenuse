@@ -1,6 +1,6 @@
 {
   "name": "@mtbjorn/hypotenuse",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A suite of tools to manage component rendering, data storage, & various utility functions",
   "main": "dist/main.js",
   "entry": "src/index.js",
