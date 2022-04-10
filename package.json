@@ -1,6 +1,6 @@
 {
   "name": "@mtbjorn/hypotenuse",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A suite of tools to manage component rendering, data storage, & various utility functions",
   "main": "dist/main.js",
   "entry": "src/index.js",
@@ -20,16 +20,13 @@
     "utilities"
   ],
   "files": [
-    "/dist",
-    "/src/ui.js",
-    "/src/data.js",
-    "/src/utility.js"
+    "/dist"
   ],
   "exports": {
     ".": "./dist/main.js",
-    "./ui": "./src/ui.js",
-    "./data": "./src/data.js",
-    "./utility": "./src/utility.js"
+    "./ui": "./dist/ui.js",
+    "./data": "./dist/data.js",
+    "./utility": "./dist/utility.js"
   },
   "homepage": "https://github.com/CAndRyan/MTBjorn.Hypotenuse",
   "bugs": {
