@@ -21,9 +21,9 @@
   ],
   "files": [
     "/dist",
-    "./src/ui.js",
-    "./src/data.js",
-    "./src/utility.js"
+    "/src/ui.js",
+    "/src/data.js",
+    "/src/utility.js"
   ],
   "exports": {
     ".": "./dist/main.js",
