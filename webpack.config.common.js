@@ -14,6 +14,8 @@ module.exports = {
         filename: '[name].js',
         library: 'hypotenuse',
         libraryTarget: 'umd',
+        globalObject: 'this',
+        publicPath: ''
     },
     resolve: {
         extensions: ['', '.js', '.jsx', '.mjs'],
