@@ -4,8 +4,8 @@
 		[
 			"@babel/preset-react",
 			{
-				"pragma": "elementTemplateEngine.createElement",
-				"pragmaFrag": "elementTemplateEngine.createFragment"
+				"pragma": "build.createElement",
+				"pragmaFrag": "build.createFragment"
 			}
 		]
 	],
@@ -13,8 +13,8 @@
 			"@babel/plugin-transform-runtime",
 			[
 				"babel-plugin-jsx-pragmatic", {
-					"module": "build/elementTemplateEngine",	// Import alias defined in Webpack
-					"import": "elementTemplateEngine"			// NOTE: this plugin works with ES6 default exports
+					"module": "src/build",	// Import alias defined in Webpack
+					"import": "build"		// NOTE: this plugin works with ES6 default exports
 				}
 			]
 		]

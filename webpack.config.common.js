@@ -20,7 +20,7 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.jsx', '.mjs'],
         alias: {
-            build: path.resolve(__dirname, 'build/')
+            src: path.resolve(__dirname, 'src')
         }
     },
     module: {

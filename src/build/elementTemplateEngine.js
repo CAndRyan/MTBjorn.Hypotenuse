@@ -1,9 +1,7 @@
 ﻿// JSX templating adapted from: https://betterprogramming.pub/how-to-use-jsx-without-react-21d23346e5dc
 // Instead of using pragma statements at the top of each file, specify in babel config
 
-import reactiveEventHandlerNames from '../src/ui/reactiveEventHandlerNames';
-
-// TOOD: move into src & expose either either in ui package or as separate 'build' package
+import reactiveEventHandlerNames from '../ui/reactiveEventHandlerNames';
 
 const classAttributePropName = 'className';
 
