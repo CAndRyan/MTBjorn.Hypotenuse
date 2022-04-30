@@ -1,7 +1,9 @@
 import {
     renderElement,
     renderElementAsAppend,
-    replaceElement
+    replaceElement,
+    ReactiveComponent,
+    DelayedComponent
 } from './ui';
 import {
     initializeDataStore,
@@ -15,7 +17,9 @@ import { resizeImage } from './utility';
 const ui = {
     renderElement,
     renderElementAsAppend,
-    replaceElement
+    replaceElement,
+    ReactiveComponent,
+    DelayedComponent
 };
 
 const data = {

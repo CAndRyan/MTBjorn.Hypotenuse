@@ -19,6 +19,9 @@ module.exports = {
     },
     resolve: {
         extensions: ['', '.js', '.jsx', '.mjs'],
+        alias: {
+            build: path.resolve(__dirname, 'build/')
+        }
     },
     module: {
         rules: [
