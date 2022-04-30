@@ -1,11 +1,58 @@
 # Hypotenuse
 
-A suite of tools to manage component rendering, data storage, & various utility functions.
+A suite of tools to manage JSX conversion, component rendering, data storage, & various utility functions.
 Uses select principles from React & Redux as a lightweight replacement framework.
 
 ## Getting Started
 
-This library is separated into 3 categories: ui rendering, data storage, & utility functions.
+This library is separated into 4 categories: JSX conversion, ui rendering, data storage, & utility functions.
+
+### JSX Conversion
+
+JSX conversion is a lightweight replacement for React's own creation of HTML elements from JSX syntax ([adapted from here](https://betterprogramming.pub/how-to-use-jsx-without-react-21d23346e5dc)). This library supports most JSX features supported by React but also provides custom functionality, such as event handlers: `onBeforeElementRender` and `onAfterElementRender`. NOTE: this custom functionality is similar to React's lifecycle methods. To swap out React's JSX converter which Babel uses by default, a pragma & import statement can be added to each file containing JSX. Otherwise, the pragma statement can be defined globally via configuration on the preset: `@babel/preset-react`. The plugin, `babel-plugin-jsx-pragmatic`, can also be used to avoid explicitly importing Hypotenuse's build library in each JSX file.
+
+1. Add an alias for webpack to resolve
+
+    ````javascript
+    resolve: {
+        alias: {
+            hypotenuse: path.resolve(__dirname, 'node_modules/@mtbjorn/hypotenuse/dist/')
+        }
+    }
+    ````
+
+    * While not stricly necessary, this step allows you to avoid explicitly importing the template converter within each JSX file or specifying as a file pragma by using the plugin: `babel-plugin-jsx-pragmatic`
+1. Install `babel-plugin-jsx-pragmatic` and `@babel/preset-react`
+
+    ````powershell
+    npm install babel-plugin-jsx-pragmatic @babel/preset-react --save-dev
+    ````
+
+1. Configure Babel
+
+    ````javascript
+    {
+        "presets": [
+            "@babel/preset-env",
+            [
+                "@babel/preset-react",
+                {
+                    "pragma": "build.createElement",
+                    "pragmaFrag": "build.createFragment"
+                }
+            ]
+        ],
+            "plugins": [
+                "@babel/plugin-transform-runtime",
+                [
+                    "babel-plugin-jsx-pragmatic", {
+                        "module": "src/build",	// Import alias defined in Webpack
+                        "import": "build"		// NOTE: this plugin works with ES6 default exports
+                    }
+                ]
+            ]
+    }
+    ````
 
 ### UI Rendering
 

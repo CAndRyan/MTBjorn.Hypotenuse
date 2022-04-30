@@ -7,7 +7,8 @@ module.exports = {
         main: './src/index.js',
         ui: './src/ui.js',
         data: './src/data.js',
-        utility: './src/utility.js'
+        utility: './src/utility.js',
+        build: './src/build.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
