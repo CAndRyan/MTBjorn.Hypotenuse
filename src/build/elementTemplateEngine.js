@@ -1,6 +1,7 @@
 ﻿// JSX templating adapted from: https://betterprogramming.pub/how-to-use-jsx-without-react-21d23346e5dc
 // Instead of using pragma statements at the top of each file, specify in babel config
 
+import { registerReactiveComponentElement } from '../ui/ReactiveComponent';
 import reactiveEventHandlerNames from '../ui/reactiveEventHandlerNames';
 
 const classAttributePropName = 'className';
@@ -14,7 +15,14 @@ const getAttributeName = (propName) => {
 	}
 };
 
+const customTags = {};
+
 const getElementWithAttributesAndEventHandlers = (tag, props) => {
+	if (tag === 'reactive-component' && customTags.hasOwnProperty(tag)) { // TODO: either remove custom tag or get registration working...
+		customTags[tag] = registerReactiveComponentElement();
+		console.log('registered custom element');
+	}
+
 	const element = document.createElement(tag);
 
 	Object.entries(props || {}).forEach(([name, value]) => {
@@ -50,8 +58,16 @@ const createElement = (tag, props, ...children) => {
 	if (!props)
 		props = {};
 
-	if (typeof tag === "function")
+	if (typeof tag === "function") {
+		if (tag.handlesChildrenExplicitly) { // TODO: handle more gracefully than requiring a property to denote children will be handled by JS
+			return tag({
+				...props,
+				children
+			});
+		}
+
 		return tag(props, ...children);
+	}
 
 	const element = getElementWithAttributesAndEventHandlers(tag, props);
 

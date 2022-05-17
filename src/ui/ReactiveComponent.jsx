@@ -7,9 +7,24 @@ const ReactiveComponent = ({
     onAfterElementRender = noOpEventHandler,
     children
 }) => (
-    <div className="reactive-component" onBeforeElementRender={onBeforeElementRender} onAfterElementRender={onAfterElementRender}>
+    <reactive-component className="reactive-component" onBeforeElementRender={onBeforeElementRender} onAfterElementRender={onAfterElementRender}>
         {children}
-    </div>
+    </reactive-component>
 );
+ReactiveComponent.handlesChildrenExplicitly = true; // TODO: handle more gracefully than requiring a property to denote children will be handled by JS
 
-export default ReactiveComponent;
+const registerReactiveComponentElement = () => {
+    var reactiveComponentElement = document.registerElement('reactive-component', {
+        prototype: Object.create(HTMLDivElement.prototype, {
+            onBeforeElementRender: noOpEventHandler,
+            onAfterElementRender: noOpEventHandler
+        }),
+        extends: 'div'
+    });
+    return reactiveComponentElement;
+};
+
+export {
+    ReactiveComponent,
+    registerReactiveComponentElement
+};
