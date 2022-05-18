@@ -40,14 +40,15 @@ export const renderElement = async (element, addElementToDom) => {
 
 	const elementEventHandlers = getReactiveEventHandlersFromChildren(element);
 	const beforeRenderTasks = elementEventHandlers.map(({ onBeforeElementRender }) => onBeforeElementRender(element)); // TODO: consider if the event handlers should accept the child element, or continue using only the parent actually being rendered -- while easy to do pre-render, there isn't currently a reference to children in the DOM...
+	
 	await Promise.all(beforeRenderTasks);
-
 	addElementToDom(element);
 
-	const afterRenderTasks = elementEventHandlers.map(({ onAfterElementRender }) => onAfterElementRender(element));
-	await Promise.all(afterRenderTasks);
+	const domElement = document.getElementById(element.id);
+	const afterRenderTasks = elementEventHandlers.map(({ onAfterElementRender }) => onAfterElementRender(domElement));
 
-	return document.getElementById(element.id);
+	await Promise.all(afterRenderTasks);
+	return domElement;
 };
 
 export const renderElementAsAppend = async (element, parentElementId) => await renderElement(element, (el) => document.getElementById(parentElementId).append(el));
